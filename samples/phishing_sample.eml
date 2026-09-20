@@ -1,0 +1,27 @@
+Authentication-Results: mx.google.com;
+       spf=fail smtp.mailfrom=paypa1-secure.xyz;
+       dkim=fail header.d=paypa1-secure.xyz;
+       dmarc=fail (p=QUARANTINE) header.from=paypa1-secure.xyz
+From: "PayPal Security Team" <security@paypa1-secure.xyz>
+Reply-To: support@secure-verify.top
+Subject: URGENT: Your account has been suspended
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We have detected unusual activity on your account. Your account has been
+suspended due to unauthorized access. You must verify your account within
+24 hours or it will be permanently closed.
+
+Confirm your identity immediately to avoid legal action:
+
+http://paypa1-secure.xyz/verify/login?account=update
+http://bit.ly/3xK9dL2
+
+A charge of $499.99 is pending. Failure to act now will result in
+permanent suspension of your account. This is your FINAL NOTICE.
+
+Act now to secure your account.
+
+PayPal Security Team

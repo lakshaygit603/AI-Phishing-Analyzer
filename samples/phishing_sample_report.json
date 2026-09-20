@@ -1,0 +1,135 @@
+{
+  "file": "samples\\phishing_sample.eml",
+  "analyzed_at": "2026-09-20T17:58:03",
+  "subject": "URGENT: Your account has been suspended",
+  "sender": {
+    "sender": "PayPal Security Team",
+    "email": "PayPal Security Team <security@paypa1-secure.xyz>",
+    "domain": "paypa1-secure.xyz"
+  },
+  "risk_score": 80,
+  "risk_level": "HIGH RISK",
+  "category_scores": {
+    "Authentication": 30,
+    "Domain Reputation": 7,
+    "URL Analysis": 13,
+    "Content/NLP": 20,
+    "Structural": 10
+  },
+  "category_max": {
+    "Authentication": 30,
+    "Domain Reputation": 20,
+    "URL Analysis": 20,
+    "Content/NLP": 20,
+    "Structural": 10
+  },
+  "urls": [
+    {
+      "url": "http://paypa1-secure.xyz/verify/login?account=update",
+      "host": "paypa1-secure.xyz"
+    },
+    {
+      "url": "http://bit.ly/3xK9dL2",
+      "host": "bit.ly"
+    }
+  ],
+  "indicators": [
+    {
+      "name": "SPF Fail",
+      "category": "Authentication",
+      "severity": "high",
+      "points": 15,
+      "reason": "SPF failed - sender not authorized by the domain's DNS records",
+      "evidence": "spf=fail"
+    },
+    {
+      "name": "DKIM Fail",
+      "category": "Authentication",
+      "severity": "high",
+      "points": 10,
+      "reason": "DKIM failed - sender not authorized by the domain's DNS records",
+      "evidence": "dkim=fail"
+    },
+    {
+      "name": "DMARC Fail",
+      "category": "Authentication",
+      "severity": "high",
+      "points": 10,
+      "reason": "DMARC failed - sender not authorized by the domain's DNS records",
+      "evidence": "dmarc=fail"
+    },
+    {
+      "name": "High-Abuse TLD",
+      "category": "Domain Reputation",
+      "severity": "medium",
+      "points": 7,
+      "reason": "'paypa1-secure.xyz' uses a cheap, abuse-friendly TLD often used by scammers",
+      "evidence": "paypa1-secure.xyz"
+    },
+    {
+      "name": "Credential-Bait Path",
+      "category": "URL Analysis",
+      "severity": "high",
+      "points": 5,
+      "reason": "Link 'http://paypa1-secure.xyz/verify/login?account=update' asks for account/login action while impersonating a brand",
+      "evidence": "http://paypa1-secure.xyz/verify/login?account=update"
+    },
+    {
+      "name": "URL Shortener",
+      "category": "URL Analysis",
+      "severity": "medium",
+      "points": 8,
+      "reason": "Shortened URL 'http://bit.ly/3xK9dL2' hides the real destination",
+      "evidence": "http://bit.ly/3xK9dL2"
+    },
+    {
+      "name": "Urgency / Pressure Language",
+      "category": "Content/NLP",
+      "severity": "high",
+      "points": 10,
+      "reason": "11 urgency phrase(s) found - panic is a manipulation tactic",
+      "evidence": "urgent; immediately; act now; final notice; verify your account"
+    },
+    {
+      "name": "Financial Lure",
+      "category": "Content/NLP",
+      "severity": "medium",
+      "points": 5,
+      "reason": "Money amount(s) $499.99 used to trigger panic/ greed",
+      "evidence": "$499.99"
+    },
+    {
+      "name": "Excessive Capitalization",
+      "category": "Content/NLP",
+      "severity": "low",
+      "points": 4,
+      "reason": "3 ALL-CAPS words - shouting to create panic",
+      "evidence": "URGENT FINAL NOTICE"
+    },
+    {
+      "name": "Generic Greeting",
+      "category": "Content/NLP",
+      "severity": "low",
+      "points": 3,
+      "reason": "'Dear Customer/User' - mass-mailed, not personally addressed",
+      "evidence": "Dear Customer/User/Member"
+    },
+    {
+      "name": "Display-Name Spoofing",
+      "category": "Structural",
+      "severity": "high",
+      "points": 6,
+      "reason": "Display name says 'PayPal Security Team' but domain is 'paypa1-secure.xyz'",
+      "evidence": "PayPal Security Team <security@paypa1-secure.xyz>"
+    },
+    {
+      "name": "Reply-To Mismatch",
+      "category": "Structural",
+      "severity": "medium",
+      "points": 4,
+      "reason": "Replies go to 'secure-verify.top' instead of the sender domain",
+      "evidence": "support@secure-verify.top"
+    }
+  ],
+  "summary": "HIGH RISK: score 80/100, 12 indicator(s) across 5 categories."
+}
